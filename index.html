@@ -14,7 +14,7 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #2c3e50; /* Black background */
+            background-color: #000; /* Black background */
             color: #ecf0f1; /* Light grey text */
             line-height: 1.6;
             padding: 40px 0;
@@ -49,6 +49,7 @@
             font-size: 28px;
             margin-top: 30px;
             color: #ecf0f1;
+            cursor: pointer;
         }
 
         ul {
@@ -102,6 +103,19 @@
             color: #2980b9;
         }
 
+        /* Profile Image */
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-top: 20px;
+        }
+
+        /* Hidden content initially */
+        .hidden-content {
+            display: none;
+        }
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .container {
@@ -121,45 +135,59 @@
             }
         }
     </style>
+    <script>
+        // Toggle visibility of the content when clicking on headings
+        function toggleContent(id) {
+            var content = document.getElementById(id);
+            content.style.display = content.style.display === 'block' ? 'none' : 'block';
+        }
+    </script>
 </head>
 
 <body>
 
     <div class="container">
         <header>
+            <img src="your-photo.jpg" alt="Edion Pelari" class="profile-img">
             <h1>Edion Pelari</h1>
             <p>Junior DevOps Engineer | IT Consultant</p>
         </header>
 
         <section>
-            <h2>About Me</h2>
-            <p>I am an IT professional with a strong background in DevOps, Linux, and Cloud Technologies. I am passionate about automation, system administration, and infrastructure management. Throughout my career, I have worked on various projects that involve optimizing processes, improving system reliability, and ensuring secure and efficient cloud architectures.</p>
+            <h2 onclick="toggleContent('about-me')">About Me</h2>
+            <p id="about-me" class="hidden-content">I am an experienced IT professional with a strong background in DevOps, Linux administration, and cloud technologies. With a passion for automation, I specialize in streamlining processes, enhancing system performance, and ensuring seamless operations across various platforms. My expertise includes optimizing cloud architectures, implementing infrastructure-as-code, and managing cloud-based resources. I am constantly learning and adapting to new technologies to provide innovative solutions that align with business goals and enhance operational efficiency.</p>
         </section>
 
         <section>
-            <h2>Projects</h2>
-            <ul>
-                <li><strong>Fragrance Shop Website (eCommerce)</strong>: Developed a full-fledged eCommerce website for an online fragrance shop, allowing customers to browse and purchase a wide range of premium perfumes. Integrated secure payment gateways and efficient shipping options.</li>
-                <li><strong>IT Consulting Firm</strong>: Provided IT consultancy services, focusing on infrastructure management, security audits, and business process automation for various organizations. Assisted clients with cloud migration and DevOps implementation.</li>
-                <li><strong>Financial Advisory IT Support</strong>: Delivered IT support and management for a financial advisory firm, ensuring seamless operations for internal and external communications. Set up secure networks, cloud services, and automated client data reporting.</li>
-            </ul>
+            <h2 onclick="toggleContent('projects')">Projects</h2>
+            <div id="projects" class="hidden-content">
+                <ul>
+                    <li><strong>Fragrance Shop Website (eCommerce)</strong>: I developed a full-fledged eCommerce website for an online fragrance shop, designed to offer a premium shopping experience for fragrance enthusiasts. The website features a clean, intuitive UI and supports various payment methods to ensure secure transactions. I integrated automated order processing, inventory management, and user authentication to enhance the customer experience and streamline backend operations. This project gave me experience in web development, eCommerce platforms, and customer service optimization.</li>
+                    <li><strong>IT Consulting Firm</strong>: In my role as an IT consultant, I provided expert guidance and solutions to businesses in need of infrastructure management, security audits, and digital transformation. I assisted clients in migrating their systems to cloud environments, optimized their network configurations, and implemented business process automation. My work helped improve operational efficiency, reduce costs, and ensure data security. This project also involved collaborating closely with cross-functional teams to deliver tailored solutions based on specific business requirements.</li>
+                    <li><strong>Financial Advisory IT Support</strong>: I offered IT support services to a financial advisory firm, ensuring smooth day-to-day operations. My tasks included setting up secure networks, maintaining IT systems, and automating client reporting processes. I also provided ongoing support and troubleshooting for any technical issues that arose. Additionally, I worked on integrating cloud solutions to enhance data storage and security. This project provided me with valuable experience in supporting financial institutions and handling sensitive data.</li>
+                </ul>
+            </div>
         </section>
 
         <section>
-            <h2>Skills</h2>
-            <ul>
-                <li><strong>DevOps & Automation</strong>: Implemented continuous integration/continuous deployment (CI/CD) pipelines, automated infrastructure provisioning, and optimized software release processes.</li>
-                <li><strong>Cloud Computing (AWS, Azure)</strong>: Experienced in deploying and managing scalable applications in the cloud, configuring cloud storage, and utilizing cloud-based services for enterprise applications.</li>
-                <li><strong>Linux & Shell Scripting</strong>: Proficient in Linux administration, automation using shell scripting, and maintaining Linux-based servers for enterprise-level applications.</li>
-                <li><strong>Networking & Security</strong>: Expertise in designing secure networks, configuring firewalls, VPNs, and ensuring best practices for securing corporate and cloud infrastructures.</li>
-            </ul>
+            <h2 onclick="toggleContent('skills')">Skills</h2>
+            <div id="skills" class="hidden-content">
+                <ul>
+                    <li><strong>DevOps & Automation</strong>: My DevOps skills encompass implementing CI/CD pipelines, automating infrastructure provisioning using tools like Terraform and Ansible, and managing containerized applications with Docker and Kubernetes. I have experience deploying microservices architectures, enabling scalable and reliable systems, and automating workflows to minimize human error and speed up software delivery.</li>
+                    <li><strong>Cloud Computing (AWS, Azure)</strong>: I have hands-on experience with both AWS and Azure, having worked on various cloud projects. This includes setting up and managing EC2 instances, configuring S3 buckets, managing virtual networks, and automating cloud-based services using AWS Lambda and Azure Functions. I have also worked on multi-cloud deployments, ensuring seamless operations and cost optimization for clients.</li>
+                    <li><strong>Linux & Shell Scripting</strong>: I am proficient in Linux system administration, having managed both production and development servers. I am skilled in shell scripting for automation tasks, such as system monitoring, log analysis, and backup management. My experience with Linux includes troubleshooting system issues, performing upgrades, and optimizing server performance for high availability and reliability.</li>
+                    <li><strong>Networking & Security</strong>: I possess strong networking knowledge, including designing secure networks, configuring firewalls, VPNs, and implementing network security protocols. My security expertise involves conducting vulnerability assessments, applying best practices for securing cloud infrastructure, and managing user access control policies. I have also worked on encryption, multi-factor authentication, and ensuring compliance with industry security standards.</li>
+                </ul>
+            </div>
         </section>
 
         <section class="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:edionpelari1997@gmail.com">edionpelari1997@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/edion-pelari-119826b6/" target="_blank">linkedin.com/in/edionpelari</a></p>
-            <p>GitHub: <a href="https://github.com/edionpelari" target="_blank">github.com/edionpelari</a></p>
+            <h2 onclick="toggleContent('contact')">Contact</h2>
+            <div id="contact" class="hidden-content">
+                <p>Email: <a href="mailto:edionpelari1997@gmail.com">edionpelari1997@gmail.com</a></p>
+                <p>LinkedIn: <a href="https://www.linkedin.com/in/edion-pelari-119826b6/" target="_blank">linkedin.com/in/edionpelari</a></p>
+                <p>GitHub: <a href="https://github.com/edionpelari" target="_blank">github.com/edionpelari</a></p>
+            </div>
         </section>
 
         <footer>
