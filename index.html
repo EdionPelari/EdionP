@@ -14,8 +14,8 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #000; /* Black background */
-            color: #ecf0f1; /* Light grey text */
+            background-color: black;
+            color: #ecf0f1;
             line-height: 1.6;
             padding: 40px 0;
         }
@@ -24,7 +24,7 @@
             width: 90%;
             max-width: 900px;
             margin: auto;
-            background-color: #34495e; /* Dark grey container */
+            background-color: #2c3e50;
             padding: 30px;
             border-radius: 12px;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -45,6 +45,15 @@
             color: #bdc3c7;
         }
 
+        .profile-img {
+            border-radius: 50%;
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            display: block;
+            margin: 0 auto 20px;
+        }
+
         h2 {
             font-size: 28px;
             margin-top: 30px;
@@ -52,15 +61,24 @@
             cursor: pointer;
         }
 
+        h3 {
+            font-size: 24px;
+            color: #ecf0f1;
+            margin-top: 10px;
+        }
+
         ul {
             list-style: none;
             padding: 0;
+            display: none;
+            color: #bdc3c7;
+            margin-top: 10px;
         }
 
         ul li {
             padding: 12px;
             margin: 10px 0;
-            background-color: #2c3e50;
+            background-color: #34495e;
             border-radius: 8px;
             font-size: 16px;
             transition: background-color 0.3s ease;
@@ -83,37 +101,24 @@
         .contact p {
             font-size: 18px;
             margin-top: 20px;
-            color: #ecf0f1;
+            color: #bdc3c7;
         }
 
         footer {
             text-align: center;
             margin-top: 40px;
             font-size: 14px;
-            color: #bdc3c7;
+            color: #7f8c8d;
         }
 
         footer a {
-            color: #bdc3c7;
+            color: #7f8c8d;
             text-decoration: none;
             font-weight: bold;
         }
 
         footer a:hover {
             color: #2980b9;
-        }
-
-        /* Profile Image */
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin-top: 20px;
-        }
-
-        /* Hidden content initially */
-        .hidden-content {
-            display: none;
         }
 
         /* Responsive Design */
@@ -134,66 +139,65 @@
                 font-size: 14px;
             }
         }
+
     </style>
-    <script>
-        // Toggle visibility of the content when clicking on headings
-        function toggleContent(id) {
-            var content = document.getElementById(id);
-            content.style.display = content.style.display === 'block' ? 'none' : 'block';
-        }
-    </script>
 </head>
 
 <body>
 
     <div class="container">
         <header>
-            <img src="your-photo.jpg" alt="Edion Pelari" class="profile-img">
+            <img src="1.jpg" alt="Edion Pelari" class="profile-img">
             <h1>Edion Pelari</h1>
             <p>Junior DevOps Engineer | IT Consultant</p>
         </header>
 
         <section>
-            <h2 onclick="toggleContent('about-me')">About Me</h2>
-            <p id="about-me" class="hidden-content">I am an experienced IT professional with a strong background in DevOps, Linux administration, and cloud technologies. With a passion for automation, I specialize in streamlining processes, enhancing system performance, and ensuring seamless operations across various platforms. My expertise includes optimizing cloud architectures, implementing infrastructure-as-code, and managing cloud-based resources. I am constantly learning and adapting to new technologies to provide innovative solutions that align with business goals and enhance operational efficiency.</p>
+            <h2 onclick="toggleSection('aboutMe')">About Me</h2>
+            <p id="aboutMe" style="display:none;">I am an IT professional with experience in DevOps, Linux, and Cloud Technologies. Passionate about automation, system administration, and infrastructure management.</p>
         </section>
 
         <section>
-            <h2 onclick="toggleContent('projects')">Projects</h2>
-            <div id="projects" class="hidden-content">
-                <ul>
-                    <li><strong>Fragrance Shop Website (eCommerce)</strong>: I developed a full-fledged eCommerce website for an online fragrance shop, designed to offer a premium shopping experience for fragrance enthusiasts. The website features a clean, intuitive UI and supports various payment methods to ensure secure transactions. I integrated automated order processing, inventory management, and user authentication to enhance the customer experience and streamline backend operations. This project gave me experience in web development, eCommerce platforms, and customer service optimization.</li>
-                    <li><strong>IT Consulting Firm</strong>: In my role as an IT consultant, I provided expert guidance and solutions to businesses in need of infrastructure management, security audits, and digital transformation. I assisted clients in migrating their systems to cloud environments, optimized their network configurations, and implemented business process automation. My work helped improve operational efficiency, reduce costs, and ensure data security. This project also involved collaborating closely with cross-functional teams to deliver tailored solutions based on specific business requirements.</li>
-                    <li><strong>Financial Advisory IT Support</strong>: I offered IT support services to a financial advisory firm, ensuring smooth day-to-day operations. My tasks included setting up secure networks, maintaining IT systems, and automating client reporting processes. I also provided ongoing support and troubleshooting for any technical issues that arose. Additionally, I worked on integrating cloud solutions to enhance data storage and security. This project provided me with valuable experience in supporting financial institutions and handling sensitive data.</li>
-                </ul>
-            </div>
+            <h2 onclick="toggleSection('projects')">Projects</h2>
+            <ul id="projects">
+                <li>Fragrance Shop Website (eCommerce) - An online store for perfumes with integrated payment gateway.</li>
+                <li>IT Consulting Firm - A platform offering consultancy services for businesses in the IT domain.</li>
+                <li>Financial Advisory IT Support - Providing IT solutions and support for a financial advisory firm.</li>
+            </ul>
         </section>
 
         <section>
-            <h2 onclick="toggleContent('skills')">Skills</h2>
-            <div id="skills" class="hidden-content">
-                <ul>
-                    <li><strong>DevOps & Automation</strong>: My DevOps skills encompass implementing CI/CD pipelines, automating infrastructure provisioning using tools like Terraform and Ansible, and managing containerized applications with Docker and Kubernetes. I have experience deploying microservices architectures, enabling scalable and reliable systems, and automating workflows to minimize human error and speed up software delivery.</li>
-                    <li><strong>Cloud Computing (AWS, Azure)</strong>: I have hands-on experience with both AWS and Azure, having worked on various cloud projects. This includes setting up and managing EC2 instances, configuring S3 buckets, managing virtual networks, and automating cloud-based services using AWS Lambda and Azure Functions. I have also worked on multi-cloud deployments, ensuring seamless operations and cost optimization for clients.</li>
-                    <li><strong>Linux & Shell Scripting</strong>: I am proficient in Linux system administration, having managed both production and development servers. I am skilled in shell scripting for automation tasks, such as system monitoring, log analysis, and backup management. My experience with Linux includes troubleshooting system issues, performing upgrades, and optimizing server performance for high availability and reliability.</li>
-                    <li><strong>Networking & Security</strong>: I possess strong networking knowledge, including designing secure networks, configuring firewalls, VPNs, and implementing network security protocols. My security expertise involves conducting vulnerability assessments, applying best practices for securing cloud infrastructure, and managing user access control policies. I have also worked on encryption, multi-factor authentication, and ensuring compliance with industry security standards.</li>
-                </ul>
-            </div>
+            <h2 onclick="toggleSection('skills')">Skills</h2>
+            <ul id="skills">
+                <li>DevOps & Automation - Expertise in automating infrastructure management and CI/CD pipelines.</li>
+                <li>Cloud Computing (AWS, Azure) - Experience deploying and managing cloud services for scalable applications.</li>
+                <li>Linux & Shell Scripting - Proficient in using Linux and writing shell scripts for system administration.</li>
+                <li>Networking & Security - Knowledge of networking protocols, firewalls, and system security practices.</li>
+            </ul>
         </section>
 
         <section class="contact">
-            <h2 onclick="toggleContent('contact')">Contact</h2>
-            <div id="contact" class="hidden-content">
-                <p>Email: <a href="mailto:edionpelari1997@gmail.com">edionpelari1997@gmail.com</a></p>
-                <p>LinkedIn: <a href="https://www.linkedin.com/in/edion-pelari-119826b6/" target="_blank">linkedin.com/in/edionpelari</a></p>
-                <p>GitHub: <a href="https://github.com/edionpelari" target="_blank">github.com/edionpelari</a></p>
-            </div>
+            <h3>Contact</h3>
+            <p>Email: <a href="mailto:edionpelari1997@gmail.com">edionpelari1997@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/edion-pelari-119826b6/" target="_blank">linkedin.com/in/edionpelari</a></p>
+            <p>GitHub: <a href="https://github.com/edionpelari" target="_blank">github.com/edionpelari</a></p>
         </section>
 
         <footer>
             <p>Created by <a href="https://github.com/edionpelari" target="_blank">Edion Pelari</a></p>
         </footer>
     </div>
+
+    <script>
+        function toggleSection(id) {
+            const section = document.getElementById(id);
+            if (section.style.display === "none") {
+                section.style.display = "block";
+            } else {
+                section.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 
