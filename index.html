@@ -70,21 +70,12 @@
             background-color: #ecf0f1;
             border-radius: 8px;
             font-size: 16px;
-            transition: background-color 0.3s ease;
+            transition: background-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         ul li:hover {
             background-color: #bdc3c7;
-        }
-
-        a {
-            color: #2980b9;
-            text-decoration: none;
-            font-weight: 600;
-        }
-
-        a:hover {
-            text-decoration: underline;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
         }
 
         .contact p {
@@ -110,23 +101,14 @@
             color: #2980b9;
         }
 
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 20px;
-            }
+        /* Scroll Animation */
+        .scroll-animate {
+            opacity: 0;
+            transition: opacity 1s ease;
+        }
 
-            header h1 {
-                font-size: 28px;
-            }
-
-            h2 {
-                font-size: 24px;
-            }
-
-            ul li {
-                font-size: 14px;
-            }
+        .fade-in {
+            opacity: 1;
         }
     </style>
 </head>
@@ -135,15 +117,14 @@
 
     <div class="container">
         <header>
-            <!-- Image added here -->
             <img src="images/1.jpg" alt="Edion Pelari">
             <h1>Edion Pelari</h1>
             <p>Junior DevOps Engineer | IT Consultant</p>
         </header>
 
-        <section>
+        <section class="scroll-animate">
             <h2>About Me</h2>
-            <p>I am an IT professional with experience in DevOps, Linux, and Cloud Technologies. Passionate about automation, system administration, and infrastructure management.</p>
+            <p>I am an IT professional with experience in DevOps, Linux, and Cloud Technologies...</p>
         </section>
 
         <section>
@@ -167,16 +148,38 @@
 
         <section class="contact">
             <h2>Contact</h2>
-            <p>Email: <a href="mailto:edionpelari1997@gmail.com">edionpelari1997@gmail.com</a></p>
+            <p>Email: <a class="tooltip" href="mailto:edionpelari1997@gmail.com">edionpelari1997@gmail.com</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/edion-pelari-119826b6/" target="_blank">linkedin.com/in/edionpelari</a></p>
             <p>GitHub: <a href="https://github.com/edionpelari" target="_blank">github.com/edionpelari</a></p>
         </section>
 
         <footer>
-            <p>Created by <a href="https://github.com/edionpelari" target="_blank">Edion Pelari</a></p>
+            <p>Created by <a href="https://github.com/edionpelari" target="_blank">Edion Pelari</a> | &copy; <?php echo date("Y"); ?></p>
         </footer>
     </div>
 
+    <script>
+        // Fade-In Effect
+        window.onload = function() {
+            var image = document.querySelector('header img');
+            image.style.opacity = 0;
+            image.style.transition = 'opacity 2s';
+            setTimeout(function() {
+                image.style.opacity = 1;
+            }, 100);
+        };
+
+        // Scroll Animation
+        window.addEventListener('scroll', function() {
+            var elements = document.querySelectorAll('.scroll-animate');
+            elements.forEach(function(element) {
+                var rect = element.getBoundingClientRect();
+                if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
+                    element.classList.add('fade-in');
+                }
+            });
+        });
+    </script>
 </body>
 
 </html>
