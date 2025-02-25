@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edion Pelari - CV</title>
+    
+    <!-- Add Font Awesome for icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+
     <style>
         * {
             margin: 0;
@@ -41,8 +45,11 @@
             border-radius: 50%;
             object-fit: cover;
             margin-bottom: 20px;
-            opacity: 0; /* Initially invisible */
-            transition: opacity 2s ease; /* Smooth fade-in */
+            transition: transform 0.3s ease; /* Smooth zoom effect */
+        }
+
+        header img:hover {
+            transform: scale(1.1); /* Zoom in when hovering */
         }
 
         header h1 {
@@ -72,12 +79,12 @@
             background-color: #ecf0f1;
             border-radius: 8px;
             font-size: 16px;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
+            transition: background-color 0.3s ease, transform 0.3s ease;
         }
 
         ul li:hover {
             background-color: #bdc3c7;
-            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+            transform: scale(1.05); /* Slightly enlarge the list item on hover */
         }
 
         .contact p {
@@ -103,14 +110,44 @@
             color: #2980b9;
         }
 
-        /* Scroll Animation */
+        /* Scroll Animations */
         .scroll-animate {
             opacity: 0;
-            transition: opacity 1s ease;
+            transform: translateX(-50px); /* Start from the left */
+            transition: all 0.5s ease;
         }
 
-        .fade-in {
+        .scroll-animate.slide-in {
             opacity: 1;
+            transform: translateX(0); /* Move to normal position */
+        }
+
+        .scroll-animate-right {
+            opacity: 0;
+            transform: translateX(50px); /* Start from the right */
+            transition: all 0.5s ease;
+        }
+
+        .scroll-animate-right.slide-in {
+            opacity: 1;
+            transform: translateX(0); /* Move to normal position */
+        }
+
+        /* Icons */
+        .social-icons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .social-icons a {
+            font-size: 24px;
+            color: #2980b9;
+            transition: transform 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            transform: scale(1.1);
         }
     </style>
 </head>
@@ -129,7 +166,7 @@
             <p>I am an IT professional with experience in DevOps, Linux, and Cloud Technologies...</p>
         </section>
 
-        <section>
+        <section class="scroll-animate-right">
             <h2>Projects</h2>
             <ul>
                 <li>Fragrance Shop Website (eCommerce)</li>
@@ -138,7 +175,7 @@
             </ul>
         </section>
 
-        <section>
+        <section class="scroll-animate">
             <h2>Skills</h2>
             <ul>
                 <li>DevOps & Automation</li>
@@ -150,9 +187,14 @@
 
         <section class="contact">
             <h2>Contact</h2>
-            <p>Email: <a class="tooltip" href="mailto:edionpelari1997@gmail.com">edionpelari1997@gmail.com</a></p>
+            <p>Email: <a href="mailto:edionpelari1997@gmail.com">edionpelari1997@gmail.com</a></p>
             <p>LinkedIn: <a href="https://www.linkedin.com/in/edion-pelari-119826b6/" target="_blank">linkedin.com/in/edionpelari</a></p>
             <p>GitHub: <a href="https://github.com/edionpelari" target="_blank">github.com/edionpelari</a></p>
+            <div class="social-icons">
+                <a href="https://www.linkedin.com/in/edion-pelari-119826b6/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                <a href="mailto:edionpelari1997@gmail.com" title="Gmail"><i class="fas fa-envelope"></i></a>
+                <a href="https://github.com/edionpelari" target="_blank" title="GitHub"><i class="fab fa-github"></i></a>
+            </div>
         </section>
 
         <footer>
@@ -161,25 +203,18 @@
     </div>
 
     <script>
-        // Fade-In Effect for Image
-        window.onload = function() {
-            var image = document.querySelector('header img');
-            setTimeout(function() {
-                image.style.opacity = 1;  // Fade image in
-            }, 100); // Delay to allow the page load
-        };
-
         // Scroll Animation for Sections
         window.addEventListener('scroll', function() {
-            var elements = document.querySelectorAll('.scroll-animate');
+            var elements = document.querySelectorAll('.scroll-animate, .scroll-animate-right');
             elements.forEach(function(element) {
                 var rect = element.getBoundingClientRect();
                 if (rect.top >= 0 && rect.bottom <= window.innerHeight) {
-                    element.classList.add('fade-in'); // Apply fade-in when in viewport
+                    element.classList.add('slide-in'); // Apply slide-in when in viewport
                 }
             });
         });
     </script>
+
 </body>
 
 </html>
