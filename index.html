@@ -48,11 +48,17 @@
             font-size: 28px;
             margin-top: 30px;
             color: #ecf0f1; /* Light text for subheadings */
+            cursor: pointer;
+        }
+
+        h2:hover {
+            color: #2980b9;
         }
 
         ul {
             list-style: none;
             padding: 0;
+            display: none; /* Hide content initially */
         }
 
         ul li {
@@ -139,13 +145,13 @@
         </header>
 
         <section>
-            <h2>About Me</h2>
-            <p>I am an IT professional with experience in DevOps, Linux, and Cloud Technologies. Passionate about automation, system administration, and infrastructure management.</p>
+            <h2 onclick="toggleVisibility('aboutMe')">About Me</h2>
+            <p id="aboutMe" style="display:none;">I am an IT professional with experience in DevOps, Linux, and Cloud Technologies. Passionate about automation, system administration, and infrastructure management.</p>
         </section>
 
         <section>
-            <h2>Projects</h2>
-            <ul>
+            <h2 onclick="toggleVisibility('projects')">Projects</h2>
+            <ul id="projects">
                 <li>Fragrance Shop Website (eCommerce) - A website designed to sell perfumes online with secure payment processing and shipping options.</li>
                 <li>IT Consulting Firm - A business offering consulting services to small and medium-sized companies, focusing on IT solutions, system optimization, and cloud management.</li>
                 <li>Financial Advisory IT Support - Providing dedicated IT support for financial advisory firms, ensuring systems and networks run smoothly and securely.</li>
@@ -153,8 +159,8 @@
         </section>
 
         <section>
-            <h2>Skills</h2>
-            <ul>
+            <h2 onclick="toggleVisibility('skills')">Skills</h2>
+            <ul id="skills">
                 <li>DevOps & Automation - Experience with tools such as Jenkins, Docker, and Kubernetes for automating deployment and infrastructure management.</li>
                 <li>Cloud Computing (AWS, Azure) - Skilled in cloud service management, including provisioning and managing resources on AWS and Microsoft Azure.</li>
                 <li>Linux & Shell Scripting - Expertise in managing Linux systems, scripting for automation, and optimizing server performance.</li>
@@ -163,16 +169,27 @@
         </section>
 
         <section class="contact">
-            <h2>Contact</h2>
-            <p>Email: <a href="mailto:edionpelari1997@gmail.com">edionpelari1997@gmail.com</a></p>
-            <p>LinkedIn: <a href="https://www.linkedin.com/in/edion-pelari-119826b6/" target="_blank">linkedin.com/in/edionpelari</a></p>
-            <p>GitHub: <a href="https://github.com/edionpelari" target="_blank">github.com/edionpelari</a></p>
+            <h2 onclick="toggleVisibility('contactInfo')">Contact</h2>
+            <p id="contactInfo" style="display:none;">Email: <a href="mailto:edionpelari1997@gmail.com">edionpelari1997@gmail.com</a></p>
+            <p id="contactInfo" style="display:none;">LinkedIn: <a href="https://www.linkedin.com/in/edion-pelari-119826b6/" target="_blank">linkedin.com/in/edionpelari</a></p>
+            <p id="contactInfo" style="display:none;">GitHub: <a href="https://github.com/edionpelari" target="_blank">github.com/edionpelari</a></p>
         </section>
 
         <footer>
             <p>Created by <a href="https://github.com/edionpelari" target="_blank">Edion Pelari</a></p>
         </footer>
     </div>
+
+    <script>
+        function toggleVisibility(id) {
+            var element = document.getElementById(id);
+            if (element.style.display === "none" || element.style.display === "") {
+                element.style.display = "block";
+            } else {
+                element.style.display = "none";
+            }
+        }
+    </script>
 
 </body>
 </html>
