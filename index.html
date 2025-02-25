@@ -1,72 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edion Pelari - CV</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 40px;
+        * {
+            margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
+            box-sizing: border-box;
         }
-        .container {
-            max-width: 800px;
-            margin: auto;
-            background: white;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        h1, h2 {
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f9f9;
             color: #333;
+            line-height: 1.6;
+            padding: 40px 0;
         }
+
+        .container {
+            width: 90%;
+            max-width: 900px;
+            margin: auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        header h1 {
+            font-size: 36px;
+            color: #2c3e50;
+        }
+
+        header p {
+            font-size: 18px;
+            color: #34495e;
+        }
+
+        h2 {
+            font-size: 28px;
+            margin-top: 30px;
+            color: #2c3e50;
+        }
+
         ul {
             list-style: none;
             padding: 0;
         }
+
         ul li {
-            background: #ddd;
-            margin: 5px 0;
-            padding: 10px;
-            border-radius: 5px;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #ecf0f1;
+            border-radius: 8px;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
         }
-        .contact {
+
+        ul li:hover {
+            background-color: #bdc3c7;
+        }
+
+        a {
+            color: #2980b9;
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .contact p {
+            font-size: 18px;
             margin-top: 20px;
+            color: #34495e;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        footer a {
+            color: #7f8c8d;
+            text-decoration: none;
             font-weight: bold;
+        }
+
+        footer a:hover {
+            color: #2980b9;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .container {
+                padding: 20px;
+            }
+
+            header h1 {
+                font-size: 28px;
+            }
+
+            h2 {
+                font-size: 24px;
+            }
+
+            ul li {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
+
 <body>
 
     <div class="container">
-        <h1>Edion Pelari</h1>
-        <p><strong>Junior DevOps Engineer | IT Consultant</strong></p>
-        
-        <h2>About Me</h2>
-        <p>I am an IT professional with experience in DevOps, Linux, and Cloud Technologies. Passionate about automation, system administration, and infrastructure management.</p>
-        
-        <h2>Projects</h2>
-        <ul>
-            <li>Fragrance Shop Website (eCommerce)</li>
-            <li>IT Consulting Firm</li>
-            <li>Financial Advisory IT Support</li>
-        </ul>
-        
-        <h2>Skills</h2>
-        <ul>
-            <li>DevOps & Automation</li>
-            <li>Cloud Computing (AWS, Azure)</li>
-            <li>Linux & Shell Scripting</li>
-            <li>Networking & Security</li>
-        </ul>
-        
-        <h2 class="contact">Contact</h2>
-        <p>Email: edionpelari1997@gmail.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/edion-pelari-119826b6/" target="_blank">linkedin.com/in/edionpelari</a></p>
-        <p>GitHub: <a href="https://github.com/edionpelari" target="_blank">github.com/edionpelari</a></p>
+        <header>
+            <h1>Edion Pelari</h1>
+            <p>Junior DevOps Engineer | IT Consultant</p>
+        </header>
+
+        <section>
+            <h2>About Me</h2>
+            <p>I am an IT professional with experience in DevOps, Linux, and Cloud Technologies. Passionate about automation, system administration, and infrastructure management.</p>
+        </section>
+
+        <section>
+            <h2>Projects</h2>
+            <ul>
+                <li>Fragrance Shop Website (eCommerce)</li>
+                <li>IT Consulting Firm</li>
+                <li>Financial Advisory IT Support</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Skills</h2>
+            <ul>
+                <li>DevOps & Automation</li>
+                <li>Cloud Computing (AWS, Azure)</li>
+                <li>Linux & Shell Scripting</li>
+                <li>Networking & Security</li>
+            </ul>
+        </section>
+
+        <section class="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:edionpelari1997@gmail.com">edionpelari1997@gmail.com</a></p>
+            <p>LinkedIn: <a href="https://www.linkedin.com/in/edion-pelari-119826b6/" target="_blank">linkedin.com/in/edionpelari</a></p>
+            <p>GitHub: <a href="https://github.com/edionpelari" target="_blank">github.com/edionpelari</a></p>
+        </section>
+
+        <footer>
+            <p>Created by <a href="https://github.com/edionpelari" target="_blank">Edion Pelari</a></p>
+        </footer>
     </div>
 
 </body>
+
 </html>
